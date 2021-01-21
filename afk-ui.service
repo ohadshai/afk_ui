@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve afk-ui
+After=network.target
+
+[Service]
+User=centos
+Group=centos
+WorkingDirectory=/home/centos/dev/afk_ui
+Environment="PATH=/home/centos/dev/afk_ui/venv/bin"
+ExecStart=/home/centos/dev/afk_ui/venv/bin/gunicorn --workers 3 --bind  0.0.0.0:8080 -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
