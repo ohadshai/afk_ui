@@ -467,5 +467,3 @@ class JobsApi(BaseApi):
         """
         resp = {}
         return self.response(200, **resp)
-
-

@@ -127,7 +127,7 @@ create_virtualenv(){
   check_exit_code "virtualenv failed to create" "virtualenv created successfully"
   print_info "Installing dependencies"
   print_bold "$(cat requirements.txt)"
-  pip3 install -r requirements.txt > /dev/null
+  pip3 install --no-index --find-links=downloaded_packages -r requirements.txt > /dev/null
   check_exit_code "dependencies failed to install" "dependencies installed successfully"
   deactivate
 }

@@ -104,4 +104,3 @@ class DevicesApi(BaseApi):
             return self.response_400(message="Request payload is not JSON")
         resp = dict()
         return self.response(200, **resp)
-
