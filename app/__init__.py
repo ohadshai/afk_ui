@@ -16,22 +16,22 @@ from log import configure_logger
 # logging.getLogger().setLevel(logging.DEBUG)
 
 
-def load_config():
+def load_config(app, apm):
     env = os.environ.get('FLASK_ENV', 'production')
     config_type = ''.join(['config.', env.capitalize(), 'Config'])
     app.config.from_object(config_type)
-    configure_logger(app)
+    configure_logger(app, apm)
 
 
 app = Flask(__name__)
-
-load_config()
 apm = ElasticAPM(app, logging=logging.ERROR)
+load_config(app, apm)
+
 # apm.capture_message('hello, world!')
 # logging.getLogger().info("HELLLLO")
-handler = LoggingHandler(client=apm.client)
-handler.setLevel(logging.WARN)
-app.logger.addHandler(handler)
+# handler = LoggingHandler(client=apm.client)
+# handler.setLevel(logging.WARN)
+# app.logger.addHandler(handler)
 try:
     1 / 0
 except ZeroDivisionError:
