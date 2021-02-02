@@ -1,3 +1,4 @@
 Flask-AppBuilder
 gunicorn
 elastic-apm[flask]
+psutil

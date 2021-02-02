@@ -4,38 +4,25 @@ import logging
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
 from elasticapm.contrib.flask import ElasticAPM
-from elasticapm.handlers.logging import LoggingHandler
 
 from log import configure_logger
 
-"""
- Logging configuration
-"""
 
-# logging.basicConfig(format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
-# logging.getLogger().setLevel(logging.DEBUG)
-
-
-def load_config(app, apm):
+def load_config(app):
     env = os.environ.get('FLASK_ENV', 'production')
     config_type = ''.join(['config.', env.capitalize(), 'Config'])
     app.config.from_object(config_type)
-    configure_logger(app, apm)
 
 
 app = Flask(__name__)
-apm = ElasticAPM(app, logging=logging.ERROR)
-load_config(app, apm)
+load_config(app)
+apm = ElasticAPM(app)
+configure_logger(app, apm)
 
-# apm.capture_message('hello, world!')
-# logging.getLogger().info("HELLLLO")
-# handler = LoggingHandler(client=apm.client)
-# handler.setLevel(logging.WARN)
-# app.logger.addHandler(handler)
 try:
     1 / 0
 except ZeroDivisionError:
-    app.logger.error( 'I cannot math', exc_info=True)
+    logging.getLogger().error('I cannot math', exc_info=True)
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session)
 
