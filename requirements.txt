@@ -1,4 +1,6 @@
+werkzeug==0.16.1
 Flask-AppBuilder
+flask_babelpkg
 gunicorn
 elastic-apm[flask]
 psutil

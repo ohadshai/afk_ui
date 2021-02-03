@@ -1,11 +1,11 @@
 import os
-import logging
 
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
 from elasticapm.contrib.flask import ElasticAPM
 
 from log import configure_logger
+from .security import MySecurityManager
 
 
 def load_config(app):
@@ -22,9 +22,10 @@ configure_logger(app, apm)
 try:
     1 / 0
 except ZeroDivisionError:
-    logging.getLogger().error('I cannot math', exc_info=True)
+    app.logger.error('I cannot math', exc_info=True)
+    # logging.getLogger().error('I cannot math', exc_info=True)
 db = SQLA(app)
-appbuilder = AppBuilder(app, db.session)
+appbuilder = AppBuilder(app, db.session, security_manager_class=MySecurityManager)
 
 
 """
@@ -40,7 +41,7 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
     cursor.close()
 """
 
-from . import views
+from . import views, models
 from .devices.api import DevicesApi
 from .jobs.api import JobsApi
 
