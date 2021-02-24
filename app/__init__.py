@@ -6,6 +6,7 @@ from elasticapm.contrib.flask import ElasticAPM
 
 from log import configure_logger
 from .security import MySecurityManager
+from app.index import  MyIndexView
 
 
 def load_config(app):
@@ -25,7 +26,7 @@ except ZeroDivisionError:
     app.logger.error('I cannot math', exc_info=True)
     # logging.getLogger().error('I cannot math', exc_info=True)
 db = SQLA(app)
-appbuilder = AppBuilder(app, db.session, security_manager_class=MySecurityManager)
+appbuilder = AppBuilder(app, db.session, base_template='baselayout.html', indexview=MyIndexView, security_manager_class=MySecurityManager)
 
 
 """
@@ -44,6 +45,7 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
 from . import views, models
 from .devices.api import DevicesApi
 from .jobs.api import JobsApi
+
 
 appbuilder.add_api(DevicesApi)
 appbuilder.add_api(JobsApi)

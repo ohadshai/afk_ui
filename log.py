@@ -10,9 +10,7 @@ def configure_logger(app, apm):
 
     handler = LoggingHandler(client=apm.client)
     handler.setLevel(logging.ERROR)
-    # logging.root.addHandler(handler)
     app.logger.addHandler(handler)
 
-    # logging.root = logging.LoggerAdapter(logging.root, extra)
     app.logger = logging.LoggerAdapter(app.logger, extra)
     logging.getLogger('werkzeug').disabled = True

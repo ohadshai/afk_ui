@@ -105,6 +105,7 @@ class Config(object):
     # APP_THEME = "yeti.css"
 
     APP_NAME = "AFK"
+    # APP_ICON = "static/img/Apple-Logo-Hack.jpg"
     FAB_API_SWAGGER_UI = True
     SQLALCHEMY_TRACK_MODIFICATIONS = FAB_API_SWAGGER_UI
     DEBUG = False

@@ -15,6 +15,7 @@ class AFKUser(User):
     # user_preferences_id = Column(Integer, ForeignKey("user_preferences.id"), nullable=False)
     user_preferences = relationship("UserPreferences")
 
+
 class Group(Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True, nullable=False)
