@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bs-stepper</title>
+    <link rel="stylesheet" href="../static/css/bs-stepper.min.css">
+    <script src="../static/js/bs-stepper.min.js"></script>
+</head>
+<body>
+<div class="mb-5 p-4 bg-white shadow-sm">
+        <h3>Non linear stepper</h3>
+        <div id="stepper2" class="bs-stepper">
+          <div class="bs-stepper-header" role="tablist">
+            <div class="step active" data-target="#test-nl-1">
+              <button type="button" class="step-trigger" role="tab" id="stepper2trigger1" aria-controls="test-nl-1" aria-selected="true">
+                <span class="bs-stepper-circle">
+                  <span class="fas fa-user" aria-hidden="true"></span>
+                </span>
+                <span class="bs-stepper-label">Name</span>
+              </button>
+            </div>
+            <div class="bs-stepper-line"></div>
+            <div class="step" data-target="#test-nl-2">
+              <button type="button" class="step-trigger" role="tab" id="stepper2trigger2" aria-controls="test-nl-2" aria-selected="false">
+                <span class="bs-stepper-circle">
+                  <span class="fas fa-map-marked" aria-hidden="true"></span>
+                </span>
+                <span class="bs-stepper-label">Address</span>
+              </button>
+            </div>
+            <div class="bs-stepper-line"></div>
+            <div class="step" data-target="#test-nl-3">
+              <button type="button" class="step-trigger" role="tab" id="stepper2trigger3" aria-controls="test-nl-3" aria-selected="false">
+                <span class="bs-stepper-circle">
+                  <span class="fas fa-save" aria-hidden="true"></span>
+                </span>
+                <span class="bs-stepper-label">Submit</span>
+              </button>
+            </div>
+          </div>
+          <div class="bs-stepper-content">
+            <form onsubmit="return false">
+              <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane active dstepper-block" aria-labelledby="stepper2trigger1">
+                <div class="form-group">
+                  <label for="exampleInputName1">Name</label>
+                  <input type="email" class="form-control" id="exampleInputName1" placeholder="Enter your name">
+                </div>
+                <button class="btn btn-primary" onclick="stepper2.next()">Next</button>
+              </div>
+              <div id="test-nl-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger2">
+                <div class="form-group">
+                  <label for="exampleInpuAddress1">Address</label>
+                  <input type="email" class="form-control" id="exampleInpuAddress1" placeholder="Enter your address">
+                </div>
+                <button class="btn btn-primary" onclick="stepper2.next()">Next</button>
+              </div>
+              <div id="test-nl-3" role="tabpanel" class="bs-stepper-pane text-center" aria-labelledby="stepper2trigger3">
+                <button type="submit" class="btn btn-primary mt-5">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+<!--<div class="bs-stepper">-->
+<!--  <div class="bs-stepper-header" role="tablist">-->
+<!--    &lt;!&ndash; your steps here &ndash;&gt;-->
+<!--    <div class="step" data-target="#logins-part">-->
+<!--      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">-->
+<!--        <span class="bs-stepper-circle">1</span>-->
+<!--        <span class="bs-stepper-label">Logins</span>-->
+<!--      </button>-->
+<!--    </div>-->
+<!--    <div class="line"></div>-->
+<!--    <div class="step" data-target="#information-part">-->
+<!--      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">-->
+<!--        <span class="bs-stepper-circle">2</span>-->
+<!--        <span class="bs-stepper-label">Various information</span>-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="bs-stepper-content">-->
+<!--    &lt;!&ndash; your steps content here &ndash;&gt;-->
+<!--    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger"></div>-->
+<!--    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger"></div>-->
+<!--  </div>-->
+<!--</div>-->
+<script src="../static/js/bs-stepper.min.js"></script>
+</body>
+</html>
