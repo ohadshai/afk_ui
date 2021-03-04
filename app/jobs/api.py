@@ -33,18 +33,22 @@ class JobsApi(BaseApi):
                       description: Id of Job
                       example: 6e4fd45a93e0
                       type: string
+                      required: false
                     page:
                       description: number of page (for pagination)
                       example: 2
                       type: integer
+                      required: false
                     page_block:
                       description: number of rows per page (for pagination)
                       example: 20
                       type: integer
+                      required: false
                     job_type:
                       description: job type
                       example: PE
                       type: string
+                      required: false
                       enum:
                       - PE
                       - RCE
@@ -54,6 +58,7 @@ class JobsApi(BaseApi):
                       description: status of job
                       example: running
                       type: string
+                      required: false
                       enum:
                       - pending
                       - running
@@ -65,10 +70,12 @@ class JobsApi(BaseApi):
                       description: name of job's submitter
                       example: john
                       type: string
+                      required: false
                     date:
                       description: datetime job was launched
                       example: "2021-01-07 15:06:46"
                       type: Datetime
+                      required: false
           responses:
             200:
               description: jobs summary
@@ -141,6 +148,7 @@ class JobsApi(BaseApi):
             schema:
               type: string
             name: job_id
+            required: true
           requestBody:
             description: update job json
             required: true
@@ -153,9 +161,11 @@ class JobsApi(BaseApi):
                       description: status of job
                       example: running
                       type: string
-                    devices:
-                      description: job's devices info
-                      type: json
+                      required: false
+                    device_id:
+                      description: device id (udid/other identifier)
+                      type: string
+                      required: false
           responses:
               200:
                 description: Update job success
@@ -197,22 +207,27 @@ class JobsApi(BaseApi):
                       description: Id of Job
                       example: 6e4fd45a93e0
                       type: string
+                      required: false
                     sub_job_id:
                       description: Id of SubJob
                       example: 564fdcdfe932
                       type: string
+                      required: false
                     page:
                       description: number of page (for pagination)
                       example: 2
                       type: integer
+                      required: false
                     page_block:
                       description: number of rows per page (for pagination)
                       example: 20
                       type: integer
+                      required: false
                     job_type:
                       description: job type
                       example: PE
                       type: string
+                      required: false
                       enum:
                       - PE
                       - RCE
@@ -222,6 +237,7 @@ class JobsApi(BaseApi):
                       description: status of job
                       example: running
                       type: string
+                      required: false
                       enum:
                       - pending
                       - running
@@ -233,77 +249,83 @@ class JobsApi(BaseApi):
                       description: name of job's submitter
                       example: john
                       type: string
+                      required: false
                     date:
                       description: datetime job was launched
                       example: "2021-01-07 15:06:46"
                       type: Datetime
+                      required: false
           responses:
               200:
                 description: subjobs information
                 content:
                   application/json:
                     schema:
-                      type: object
-                      properties:
-                        job_type:
-                          description: job type
-                          example: running
-                          type: string
-                        job_id:
-                          description: Id of job
-                          example: 6e4fd45a93e0
-                          type: string
-                        subjob_id:
-                          description: Id of Subjob
-                          example: 6e4fd45a93e0
-                          type: string
-                        user:
-                          description: name of job's submitter
-                          example: john
-                          type: string
-                        status:
-                          description: status of subjob
-                          example: running
-                          type: string
-                        date:
-                          description: datetime job was launched
-                          example: "2021-01-07 15:06:46"
-                          type: Datetime
-                        results:
-                          description: run_results of subjob
+                      type: array
+                      items:
                           type: object
                           properties:
-                            number_test:
-                              description: number of run inside of subjob
-                              example: 2
-                              type: integer
-                            test_name:
-                              description: test name
-                              example: test_rce
+                            job_type:
+                              description: job type
+                              example: running
+                              type: string
+                            job_id:
+                              description: Id of job
+                              example: 6e4fd45a93e0
+                              type: string
+                            subjob_id:
+                              description: Id of Subjob
+                              example: 6e4fd45a93e0
+                              type: string
+                            user:
+                              description: name of job's submitter
+                              example: john
                               type: string
                             status:
-                              description: status of run
-                              example: failed
+                              description: status of subjob
+                              example: running
                               type: string
-                            error_reason:
-                              description: reason for error in test(if necessary)
-                              example:
-                              type: string
-                            xxx_session_link:
-                              description: xxx session link for this run
-                              example: http://xxxx
-                              type: string
-                            xxx_result:
-                              description: xxx result for this run
-                              type: object
-                            crash_link:
-                              description: xxx crash link for this run (if exists)
-                              example: http://xxxx
-                              type: string
-                            console_log_link:
-                              description: xxx console log link for this run (if exists)
-                              example: http://xxxx
-                              type: string
+                            date:
+                              description: datetime job was launched
+                              example: "2021-01-07 15:06:46"
+                              type: Datetime
+                            results:
+                              type: array
+                              items:
+                                  description: run_results of subjob
+                                  type: object
+                                  properties:
+                                    number_test:
+                                      description: number of run inside of subjob
+                                      example: 2
+                                      type: integer
+                                    test_name:
+                                      description: test name
+                                      example: test_rce
+                                      type: string
+                                    status:
+                                      description: status of run
+                                      example: failed
+                                      type: string
+                                    error_reason:
+                                      description: reason for error in test(if necessary)
+                                      example:
+                                      type: string
+                                    xxx_session_link:
+                                      description: xxx session link for this run
+                                      example: http://xxxx
+                                      type: string
+                                    xxx_result:
+                                      description: xxx result for this run
+                                      type: object
+                                    crash_link:
+                                      description: xxx crash link for this run (if exists)
+                                      example: http://xxxx
+                                      type: string
+                                    console_log_link:
+                                      description: xxx console log link for this run (if exists)
+                                      example: http://xxxx
+                                      type: string
 
 
               400:

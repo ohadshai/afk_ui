@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+/**{
   margin: 0;
   padding: 0;
   outline: none;
   font-family: 'Poppins', sans-serif;
-}
+}*/
+
 body{
-  display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -17,23 +17,34 @@ body{
   color: #fff;
   background: #d43f8d;
 }
-.container{
-  width: 330px;
+.container1{
+  position: relative
+  width: 1200px;
   background: #fff;
   text-align: center;
-  border-radius: 5px;
-  padding: 50px 35px 10px 35px;
+  border-radius: 30px;
+  padding: 180px 35px 10px 35px;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  outline: none;
+  box-sizing: initial;
 }
-.container header{
+.container1 header{
   font-size: 35px;
   font-weight: 600;
   margin: 0 0 30px 0;
 }
-.container .form-outer{
+.container1 .progress-bar{
+  display: flex;
+  margin: 40px 20px;
+  user-select: none;
+}
+
+.container1 .form-outer{
   width: 100%;
   overflow: hidden;
 }
-.container .form-outer form{
+.container1 .form-outer form{
   display: flex;
   width: 400%;
 }
@@ -100,17 +111,13 @@ form .page .btns button.prev{
 form .page .btns button.next{
   margin-left: 3px;
 }
-.container .progress-bar{
-  display: flex;
-  margin: 40px 0;
-  user-select: none;
-}
-.container .progress-bar .step{
+
+.container1 .progress-bar .step{
   text-align: center;
   width: 100%;
   position: relative;
 }
-.container .progress-bar .step p{
+.container1 .progress-bar .step p{
   font-weight: 500;
   font-size: 18px;
   color: #000;
@@ -128,10 +135,8 @@ form .page .btns button.next{
   font-size: 17px;
   line-height: 25px;
 }
-  /* content: "\2713"; */
-.progress-bar .step .bullet.active{
-    content: '';
-  position: absolute;
+  /* content: "\2713";
+    position: absolute;
   border-style: solid;
   border-width: 0 0.3em 0.25em 0;
   height: 1em;
@@ -139,8 +144,9 @@ form .page .btns button.next{
   left: 0.6em;
   margin-top: -1em;
   transform: rotate(45deg);
-  width: 0.5em;
-
+  width: 0.5em;*/
+.progress-bar .step .bullet.active{
+    content: '';
   border-color: #d43f8d;
   background: #d43f8d;
 }
@@ -157,9 +163,9 @@ form .page .btns button.next{
   position: absolute;
   content: '';
   bottom: 11px;
-  right: -51px;
+  right: -400px;
   height: 3px;
-  width: 44px;
+  width: 400px;
   background: #262626;
 }
 .progress-bar .step .bullet.active:after{
