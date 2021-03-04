@@ -1,13 +1,13 @@
-* {
+/** {
 	margin: 0;
 	padding-top: 10px;
 	box-sizing: border-box;
-}
+}*/
 
 body {
-	font-family: poppins, sans-serif;
+/*	font-family: poppins, sans-serif;
 	font-size: 16px;
-	color: #2c2c2c;
+	color: #2c2c2c; */
 	background-color: DarkMagenta;
 }
 
