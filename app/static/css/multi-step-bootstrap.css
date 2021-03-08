@@ -86,7 +86,10 @@ body a {
 	border: none;
 	background-color: transparent;
 	outline: none!important;
-	cursor: pointer
+	cursor: pointer;
+    line-height: 30px;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 @media(min-width:500px) {
@@ -224,8 +227,59 @@ body a {
 	transform: scale(1)
 }
 
-.container-job-type {
-    /*display: flex;*/
-    background: gray;
-    padding-down: 10px;
+.multisteps-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: gray!important;
+    width: 600px;
+    min-height: 180px;
+    overflow: hidden;
+    position: relative;
+    top: 100px;
+    left: 600px;
+     border-radius: 20px;
+}
+
+.stepper{
+    position: relative;
+    top: 30px;
+    left: 240px;
+    width: 1300px;
+}
+
+.job_type_dropdown{
+    display: flex;
+/*    justify-content: center;
+    align-items: center;*/
+    position: relative;
+    width: 300px;
+    top: 25px;
+    bottom: 30px;
+    right: 30px;
+    left: -240px;
+    background: Teal;
+    color: white;
+    font-weight: bold;
+}
+
+.choose_job_type_header{
+    font-size: 26px;
+    color: black;
+	margin-right: 20px;
+	position:relative;
+	left: -250px;
+	top: 20px;
+	white-space: nowrap;
+
+}
+
+.flex_type_extension{
+    display:flex;
+}
+
+.next_button{
+    position: relative;
+    left: 130px;
+    top: 40px;
 }
