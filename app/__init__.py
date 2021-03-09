@@ -8,6 +8,8 @@ from log import configure_logger
 from .security import MySecurityManager
 from app.index import  MyIndexView
 
+from .jenkins_handler import JenkinsHandler
+
 
 def load_config(app):
     env = os.environ.get('FLASK_ENV', 'production')
@@ -20,10 +22,10 @@ load_config(app)
 apm = ElasticAPM(app)
 configure_logger(app, apm)
 
-try:
-    1 / 0
-except ZeroDivisionError:
-    app.logger.error('I cannot math', exc_info=True)
+# try:
+#     1 / 0
+# except ZeroDivisionError:
+#     app.logger.error('I cannot math', exc_info=True)
     # logging.getLogger().error('I cannot math', exc_info=True)
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session, base_template='baselayout.html', indexview=MyIndexView, security_manager_class=MySecurityManager)
@@ -49,3 +51,7 @@ from .jobs.api import JobsApi
 
 appbuilder.add_api(DevicesApi)
 appbuilder.add_api(JobsApi)
+
+jenkins_handler = JenkinsHandler()
+jobs_info = jenkins_handler.get_jobs_info()
+
