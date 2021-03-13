@@ -4,3 +4,4 @@ flask_babelpkg
 gunicorn
 elastic-apm[flask]
 psutil
+reqeusts

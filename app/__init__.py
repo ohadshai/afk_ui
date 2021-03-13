@@ -53,5 +53,13 @@ appbuilder.add_api(DevicesApi)
 appbuilder.add_api(JobsApi)
 
 jenkins_handler = JenkinsHandler()
-jobs_info = jenkins_handler.get_jobs_info()
+if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
+    jobs_info = jenkins_handler.get_jobs_info()
+    for jobs_info in jobs_info:
+        job_type = models.JobType(name=jobs_info['name'].lstrip('afk_'), test_params=None, results_params=None)
+        db.session.add(job_type)
+        db.session.commit()
+
+
+
 

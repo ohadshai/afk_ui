@@ -17,7 +17,7 @@ class JenkinsHandler():
         :param filter: list of keys to filter
         :return:
         """
-        res = requests.get(f"{self.url}/api/json?tree=jobs\[name,color\]", auth=AUTHENTICATION_INFO)
+        res = requests.get(f"{self.url}/api/json?tree=jobs[name,color]", auth=AUTHENTICATION_INFO)
         if not res.ok:
             res.raise_for_status()
         jobs_info = res.json()['jobs']

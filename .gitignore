@@ -7,3 +7,4 @@ env
 venv
 *.sublime*
 *.log
+*.DS_Store

@@ -52,4 +52,5 @@ class Job(Model):
 class JobType(Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(20))
+    test_params = Column(JSON)
     results_params = Column(JSON)
