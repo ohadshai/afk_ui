@@ -59,6 +59,6 @@ class MyUserDBModelView(UserDBModelView):
     ]
 
 
-class MySecurityManager(SecurityManager):
+class AfkUiSecurityManager(SecurityManager):
     user_model = AFKUser
     userdbmodelview = MyUserDBModelView

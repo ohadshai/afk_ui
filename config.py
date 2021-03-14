@@ -62,7 +62,7 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = "en"
     # Your application default translation path
     BABEL_DEFAULT_FOLDER = "translations"
-    # The allowed translation for you app
+    # The allowed translation for you afk_ui
     LANGUAGES = {
         "en": {"flag": "gb", "name": "English"},
         "pt": {"flag": "pt", "name": "Portuguese"},
@@ -77,10 +77,10 @@ class Config(object):
     # Image and file configuration
     # ---------------------------------------------------
     # The file upload folder, when using models with files
-    UPLOAD_FOLDER = basedir + "/app/static/uploads/"
+    UPLOAD_FOLDER = basedir + "/afk_ui/static/uploads/"
 
     # The image upload folder, when using models with images
-    IMG_UPLOAD_FOLDER = basedir + "/app/static/uploads/"
+    IMG_UPLOAD_FOLDER = basedir + "/afk_ui/static/uploads/"
 
     # The image upload url, when using models with images
     IMG_UPLOAD_URL = "/static/uploads/"

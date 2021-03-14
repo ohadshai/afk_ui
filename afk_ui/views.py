@@ -3,7 +3,7 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView, ModelRestApi
 
 
-from . import appbuilder, db
+from .extensions import appbuilder
 
 
 from flask_appbuilder import BaseView, expose, has_access
@@ -31,10 +31,7 @@ class Results(BaseView):
         return self.render_template("results.html")
 
 #
-appbuilder.add_view_no_menu(NewCycle())
-appbuilder.add_view_no_menu(Results())
-appbuilder.add_link("New Cycle", icon="fa fa-tasks", href="/newcycle")
-appbuilder.add_link("Results", icon="fa fa-table", href="/results")
+
 
 """
     Create your Model based REST API::
@@ -79,4 +76,4 @@ def page_not_found(e):
     )
 
 
-db.create_all()
+# db.create_all()
