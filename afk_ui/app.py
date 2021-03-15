@@ -82,13 +82,20 @@ class AfkUiAppInitializer:
         jenkins_handler = JenkinsHandler()
         if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
             jobs_info = jenkins_handler.get_jobs_info()
-            for jobs_info in jobs_info:
-                # job_name = jobs_info['name'].lstrip('afk_')
-                # db.session.query().filter(JobType.name == job_name).update({"name": "hello"})
-
-                # job_type = JobType.query.filter_by(name=job_name).first_or_404()
-                job_type = JobType(name=jobs_info['name'].lstrip('afk_'), test_params=None, results_params=None)
-                db.session.add(job_type)
+            for job_info in jobs_info:
+                job_name = job_info['name'].lstrip('afk_')
+                existing_job_type = db.session.query(JobType).filter(JobType.name == job_name).one_or_none()
+                if existing_job_type:
+                    # TO BE DONE - get jobs parameters
+                    pass
+                    # job_keys = existing_job_type.to_json().keys() & job_info.keys()
+                    # job_keys = list(filter(lambda x: x not in ('id', 'name'), job_keys))
+                    # if job_keys:
+                    #     job_type_update = {key: job_info.get(key, None) for key in job_keys}
+                    #     existing_job_type.__dict__.update(job_type_update)
+                else:
+                    job_type = JobType(name=job_name, test_params=None, results_params=None)
+                    db.session.add(job_type)
                 db.session.commit()
 
     def configure_fab(self) -> None:

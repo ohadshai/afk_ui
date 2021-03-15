@@ -20,6 +20,9 @@ class JenkinsHandler():
         jobs_info = self.server.get_all_jobs()
         return jobs_info
 
+    def get_job_info(self, name):
+        return self.server.get_job_info(name)
+
 
 
 

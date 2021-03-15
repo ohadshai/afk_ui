@@ -1,7 +1,8 @@
 from flask import request
-
-
 from flask_appbuilder.api import BaseApi, expose
+
+from afk_ui.extensions import db
+from afk_ui.models import JobType
 
 
 class JobsApi(BaseApi):
@@ -489,3 +490,9 @@ class JobsApi(BaseApi):
         """
         resp = {}
         return self.response(200, **resp)
+
+    @expose("/types", methods=["GET"])
+    def job_types(self):
+        job_types = db.session.query(JobType).all()
+        job_types_obj = {job_type.to_json()['name']: job_type.to_json() for job_type in job_types}
+        return self.response(self, **job_types_obj)
