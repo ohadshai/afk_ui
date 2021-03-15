@@ -3,19 +3,13 @@
 {% block head_css %}
     {{ super() }}
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+<link rel="stylesheet" href="{{url_for('static',filename='css/googleapis-material-icons.css')}}">
 <link href="{{url_for('static',filename='css/stepper.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="{{url_for('static',filename='css/getmdl-select.min.css')}}>
 
 <link href="{{url_for('static',filename='css/stepper.min.css')}}" rel="stylesheet">
-
-    <!-- <link href="{{url_for('static',filename='css/material.deep_purple-blue.min.css')}}" rel="stylesheet"> -->
 <link href="{{url_for('static',filename='css/material.indigo-purple.min.css')}}" rel="stylesheet">
-
-<!--<link href="{{url_for('static',filename='css/my.css')}}" rel="stylesheet">-->
-
-
-
 
 {% endblock %}
 
@@ -35,10 +29,7 @@
                 <span class="mdl-step__title-text">Choose Job</span>
     </span>
         <span class="mdl-step__label-indicator"><span class="mdl-step__label-indicator-content">
-            <i class="fas fa-sliders-h"></i>
-            <!-- <span class="material-icons">
-                add
-            </span> -->
+            <i class="fa fa-wrench"></i>
         </span>
 
         </span>
@@ -52,9 +43,9 @@
                 <input type="hidden" value="" name="sample1">
                 <label for="sample1" class="mdl-textfield__label">Choose Job Type</label>
                 <ul for="sample1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                    <li class="mdl-menu__item" data-val="DEU">Daa </li>
-                    <li class="mdl-menu__item" data-val="BLR">Daa1</li>
-                    <li class="mdl-menu__item" data-val="RUS">Daa2</li>
+                    {% for job_name in job_names %}
+                    <li class="mdl-menu__item">{{job_name}}</li>
+                    {% endfor %}
                 </ul>
             </div>
 

@@ -3,7 +3,8 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView, ModelRestApi
 
 
-from .extensions import appbuilder
+from .extensions import appbuilder, db
+from .models import JobType
 
 
 from flask_appbuilder import BaseView, expose, has_access
@@ -17,7 +18,9 @@ class NewCycle(BaseView):
     def get_page(self):
         # do something with param1
         # and return to previous page or index
-        return self.render_template("new_cycle.html")
+        job_types = db.session.query(JobType).all()
+        job_names = [job_type.to_json()['name'] for job_type in job_types]
+        return self.render_template("new_cycle.html", job_names=job_names)
 
 
 class Results(BaseView):

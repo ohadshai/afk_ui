@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, make_response, jsonify
 from flask_appbuilder.api import BaseApi, expose
 
 from afk_ui.extensions import db
@@ -494,5 +494,8 @@ class JobsApi(BaseApi):
     @expose("/types", methods=["GET"])
     def job_types(self):
         job_types = db.session.query(JobType).all()
-        job_types_obj = {job_type.to_json()['name']: job_type.to_json() for job_type in job_types}
-        return self.response(self, **job_types_obj)
+        job_types_list = [job_type.to_json() for job_type in job_types]
+        _ret_json = jsonify(job_types_list)
+        resp = make_response(_ret_json, 200)
+        resp.headers["Content-Type"] = "application/json; charset=utf-8"
+        return resp

@@ -5,3 +5,4 @@ gunicorn
 elastic-apm[flask]
 psutil
 reqeusts
+python-jenkins
