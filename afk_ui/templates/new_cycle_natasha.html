@@ -1,0 +1,797 @@
+{% extends "appbuilder/base.html" %}
+
+{% block head_css %}
+    {{ super() }}
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="{{url_for('static',filename='css/stepper.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static',filename='css/getmdl-select.min.css')}}">
+<link href="{{url_for('static',filename='css/stepper.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
+<link href="{{url_for('static',filename='css/my.css')}}" rel="stylesheet">
+
+
+
+
+{% endblock %}
+
+{% block head_js %}
+    {{ super() }}
+
+
+
+{% endblock %}
+
+{% block content %}
+<!-- markup -->
+<ul class="mdl-stepper mdl-stepper--linear mdl-stepper--horizontal unset-box" id="demo-stepper-linear">
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+              <span class="mdl-step__title">
+                <span class="mdl-step__title-text">Add</span>
+    </span>
+        <span class="mdl-step__label-indicator"><span class="mdl-step__label-indicator-content">
+            <span class="material-icons">
+                add
+            </span>
+        </span>
+
+        </span>
+    </span>
+    <div class="mdl-step__content">
+
+
+         <div class="mdl-grid center-items">
+           <!-- Simple Select -->
+            <div class="mdl-textfield mdl-js-textfield getmdl-select">
+                <input type="text" value="" class="mdl-textfield__input" id="sample1" readonly>
+                <input type="hidden" value="" name="sample1">
+                <label for="sample1" class="mdl-textfield__label">Choose template</label>
+                <ul for="sample1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                    <li class="mdl-menu__item" data-val="DEU">Daa </li>
+                    <li class="mdl-menu__item" data-val="BLR">Daa1</li>
+                    <li class="mdl-menu__item" data-val="RUS">Daa2</li>
+                </ul>
+            </div>
+
+            </div>
+
+
+    </div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" id="first_step" data-stepper-next>
+            Continue
+          </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+            Cancel
+          </button>
+    </div>
+  </li>
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+          <span class="mdl-step__title">
+            <span class="mdl-step__title-text">Choose</span>
+            </span>
+
+           <span class="mdl-step__label-indicator"><span class="mdl-step__label-indicator-content">
+                 <span class="material-icons">
+                    settings_cell
+                </span>
+            </span>
+
+            </span>
+    </span>
+    <div class="mdl-step__content">
+
+
+              <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+
+              <div class="mel-nav">
+                  <ul class="mel-filter-nav">
+                    <li class="mel-filter" data-filter="*">All</li>
+                    <li class="mel-filter" data-filter=".mine">Mine</li>
+                    <li class="mel-filter" data-filter=".metal">Software</li>
+                    <li class="mel-filter" data-filter=".mockups">Hardware</li>
+                    <li class="mel-filter" data-filter=".designs">PAC</li>
+                </ul>
+            </div>
+
+
+
+
+                      <!-- Displayed on Computer and Tablet -->
+                      <!-- Search -->
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable nata-search">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                          <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                          <input class="mdl-textfield__input" type="text" id="sample6">
+                          <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                        </div>
+                      </div>
+
+                      <!-- Displayed on mobile -->
+                      <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+                      <!-- Search button -->
+                      <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+                        <i class="material-icons">search</i>
+                      </button>
+
+
+
+                    </div>
+                  </header>
+
+
+
+ <div class="mel-grid ">
+    <div class="mel-grid-sizer"></div>
+
+
+
+        <!-- grid-item start -->
+      	<div class="designs card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/iphone_TEST.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                    <i class="material-icons  nata-icon">phonelink_lock</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">1.3</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+
+     <!-- grid-item start -->
+      	<div class="designs card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/sam.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                    <i class="material-icons  nata-icon">phonelink_lock</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">1.3</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+<!-- grid-item start -->
+      	<div class="metal card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/sam.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                    <i class="material-icons  nata-icon">phonelink_lock</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">1.3</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+<!-- grid-item start -->
+      	<div class="card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/sam.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                    <i class="material-icons  nata-icon">phonelink_lock</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">14.5</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+
+     <!-- grid-item start -->
+      	<div class="metal card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/sam.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                   <i class="material-icons  nata-icon-gr">phonelink_ring</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">14.4.1</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+<!-- grid-item start -->
+      	<div class="card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/sam.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                    <i class="material-icons  nata-icon">phonelink_lock</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">1.3</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+     <!-- grid-item start -->
+      	<div class="card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename='img/sam.jpg')}});">
+                <div class="card__secondary__title ">
+                                <div class="lock_status">
+                                    <i class="material-icons  nata-icon-gr">phonelink_ring</i>
+                                </div>
+
+                                <div class=" card__secondary__title__text font_class_nata">iPhoneX Pro</div>
+                                <h6 class="version card__secondary__title__subtext ">1.3</h6>
+                </div>
+                 <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                 </button>
+                <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                                      <span class=" card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+
+                        </div>
+                </div>
+                 <div class="card-reveal">
+                     <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">close</i>
+                        </button>
+                   <!--  <i class="material-icons right">close</i></span> -->
+                    </span>
+
+                     <ul class="demo-list-two mdl-list">
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue			">settings_remote</i>
+                              <span>Wifi</span>
+                              <span class="mdl-list__item-sub-title">f0:98:9d:75:5a:f0</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>ecid</span>
+                              <span class="mdl-list__item-sub-title">0x1A195218D8402E</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">fingerprint</i>
+                              <span>udid</span>
+                              <span class="mdl-list__item-sub-title">c6e5e5ee3fbd0536e51d70965c4de96e34c2d44e</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue			">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">80%</span>
+                            </span>
+                          </li>
+                        </ul>
+             </div>
+	    </div> <!-- .grid-item -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </div><!-- .grid -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+            Continue
+          </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+            Cancel
+          </button>
+    </div>
+  </li>
+  <li class="mdl-step">
+    <span class="mdl-step__label">
+          <span class="mdl-step__title">
+            <span class="mdl-step__title-text">Test param</span>
+    </span>
+        <span class="mdl-step__label-indicator"><span class="mdl-step__label-indicator-content">
+                 <span class="material-icons">
+                    settings_input_component
+                </span>
+            </span>
+
+            </span>
+    </span>
+    <div class="mdl-step__content"></div>
+    <div class="mdl-step__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+            Continue
+          </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+            Cancel
+          </button>
+    </div>
+  </li>
+</ul>
+
+
+
+{% endblock %}
+
+
+{% block tail_js %}
+    <script src="{{url_for('static',filename='appbuilder/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='appbuilder/datepicker/bootstrap-datepicker.js')}}"></script>
+    <script src="{{url_for('static',filename='appbuilder/select2/select2.js')}}"></script>
+    <script src="{{url_for('static',filename='appbuilder/js/ab.js')}}"></script>
+
+
+
+
+
+  <script src="{{url_for('static',filename='js/material.min.js')}}"></script>
+
+    <script src="{{url_for('static',filename='js/stepper.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/getmdl-select.min.js')}}"></script>
+<!-- <script src="{{url_for('static',filename='js/bootstrap-slider.js')}}"></script> -->
+ <script src="{{url_for('static',filename='js/isotope.pkgd.js')}}"></script>
+ <!--<script src="{{url_for('static',filename='js/materialize.js')}}"></script> -->
+
+<script src="{{url_for('static',filename='js/anime.min.js')}}"></script>
+
+<!-- script -->
+<script>
+
+
+
+
+
+/* $("#ex13").slider();
+$("#ex14").slider(); */
+ var $grid;
+
+window.onload = function(e){
+   $grid = $('.mel-grid').isotope({
+   itemSelector: '.mel-grid-item',
+    percentPosition: true,
+    columnWidth: '.mel-grid-sizer'
+
+});
+
+
+  (function () {
+    var selector = '.mdl-stepper#demo-stepper-linear';
+    // Select stepper container element
+    var stepperElement = document.querySelector(selector);
+    componentHandler.upgradeElement(stepperElement);
+
+    var Stepper;
+    var steps;
+
+    if (!stepperElement) return;
+
+    // Get the MaterialStepper instance of element to control it.
+    Stepper = stepperElement.MaterialStepper;
+
+    if (!Stepper) {
+      console.error('MaterialStepper instance is not available for selector: ' + selector + '.');
+      return;
+    }
+    steps = stepperElement.querySelectorAll('.mdl-step');
+
+    for (var i = 0; i < steps.length; i++) {
+      // When user clicks on [data-stepper-next] button of step.
+      steps[i].addEventListener('onstepnext', function (e) {
+        // {element}.MaterialStepper.next() change the state of current step to "completed"
+        // and move one step forward.
+        Stepper.next();
+      });
+    }
+
+    // When all steps are completed this event is dispatched.
+    stepperElement.addEventListener('onsteppercomplete', function (e) {
+      var toast = document.querySelector('#snackbar-stepper-complete');
+
+      if (!toast) return;
+
+      toast.MaterialSnackbar.showSnackbar({
+        message: 'Stepper linear are completed',
+        timeout: 4000,
+        actionText: 'Ok'
+      });
+    });
+
+
+  })();
+
+$("#first_step").click(function() {
+   $grid.isotope('layout');
+
+});
+
+
+
+
+
+  }
+
+
+
+
+
+// filter items on button click
+/*$('.mel-filter-nav').on( 'click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});*/
+
+
+// bind filter button click
+$('.mel-filter-nav').on( 'click', '.mel-filter', function(){
+  var filterValue = $( this ).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+
+
+// change is-checked class on buttons
+$('.mel-filter-nav').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', '.mel-filter', function() {
+  $buttonGroup.find('.is-checked').removeClass('is-checked');
+  $( this ).addClass('is-checked');
+  });
+});
+
+/* $(document).ready(function(){
+    $('#job_template').formSelect();
+  });
+*/
+
+
+(function(anim) {
+  $(document).on('click', '.card', function(e) {
+    if ($(this).children('.card-reveal').length) {
+      var $card = $(e.target).closest('.card');
+      if ($card.data('initialOverflow') === undefined) {
+        $card.data(
+          'initialOverflow',
+          $card.css('overflow') === undefined ? '' : $card.css('overflow')
+        );
+      }
+      let $cardReveal = $(this).find('.card-reveal');
+      if (
+        $(e.target).is($('.card-reveal .card-title')) ||
+        $(e.target).is($('.card-reveal .card-title i'))
+      ) {
+        // Make Reveal animate down and display none
+        anim({
+          targets: $cardReveal[0],
+          translateY: 0,
+          duration: 225,
+          easing: 'easeInOutQuad',
+          complete: function(anim) {
+            let el = anim.animatables[0].target;
+            $(el).css({ display: 'none' });
+            $card.css('overflow', $card.data('initialOverflow'));
+          }
+        });
+      } else if ($(e.target).is($('.card .activator')) || $(e.target).is($('.card .activator i'))) {
+        $card.css('overflow', 'hidden');
+        $cardReveal.css({ display: 'block' });
+        anim({
+          targets: $cardReveal[0],
+          translateY: '-100%',
+          duration: 300,
+          easing: 'easeInOutQuad'
+        });
+      }
+    }
+  });
+})(anime);
+
+
+</script>
+{% endblock %}
+
