@@ -1,15 +1,15 @@
-from flask import request
-
+from flask import request, current_app, redirect
+import requests
 from flask_appbuilder.api import BaseApi, expose
 
 
 class DevicesApi(BaseApi):
 
-    resource_name = "devices"
+    resource_name = "device_info"
     openapi_spec_tag = "Devices"
 
     @expose("/", methods=["GET"])
-    def devices(self):
+    def device_info(self):
         """Get all devices from DSM according to filter
         ---
         get:
@@ -112,7 +112,10 @@ class DevicesApi(BaseApi):
             500:
               $ref: '#/components/responses/500'
         """
-        if not request.is_json:
-            return self.response_400(message="Request payload is not JSON")
-        resp = dict()
-        return self.response(200, **resp)
+        # For OutSide #
+        import json
+        with open('afk_ui/devices/device_info_example.json') as f:
+            device_info = json.load(f)
+        # Inside #
+        return redirect(request.url, code=302)
+        return self.response(200, **device_info)

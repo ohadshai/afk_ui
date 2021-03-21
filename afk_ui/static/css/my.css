@@ -404,3 +404,8 @@ element.style {
     font-size: 16px !important;
     font-weight: bold !important;
 }
+
+ .mdl-textfield__label{
+     text-align: center !important;
++}
+

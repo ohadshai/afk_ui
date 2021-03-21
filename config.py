@@ -136,6 +136,7 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     '''All necessary Development configuration'''
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
+    DSM_SERVER = "http://afk-dev-server:8081"
     DEBUG = True
 
 
