@@ -20,8 +20,8 @@ class NewCycle(BaseView):
         # and return to previous page or index
         job_types = db.session.query(JobType).all()
         job_names = [job_type.to_json()['name'] for job_type in job_types]
-        return self.render_template("new_cycle_natasha.html")
-        # return self.render_template("new_cycle.html", job_names=job_names)
+        #return self.render_template("new_cycle_natasha_MANUAL.html")
+        return self.render_template("new_cycle.html", job_names=job_names)
 
 
 class Results(BaseView):

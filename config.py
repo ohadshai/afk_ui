@@ -131,7 +131,7 @@ class Config(object):
 
 class ProductionConfig(Config):
     '''All necessary Production configuration'''
-
+    DSM_SERVER = "http://afk-server:8081"
 
 class DevelopmentConfig(Config):
     '''All necessary Development configuration'''

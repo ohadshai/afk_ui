@@ -405,7 +405,14 @@ element.style {
     font-weight: bold !important;
 }
 
- .mdl-textfield__label{
+.mdl-textfield__label{
      text-align: center !important;
-+}
+}
+
+.iphone-background {
+/* style="background-image: url({{url_for('static',filename='img/iphone.jpg')}});background-size: 200px"*/
+    background-image: url('../img/iphone.jpg');
+    background-size: 200px !important;
+    background-position: 50% 50% !important;
+}
 

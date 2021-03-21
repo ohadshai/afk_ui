@@ -117,5 +117,5 @@ class DevicesApi(BaseApi):
         with open('afk_ui/devices/device_info_example.json') as f:
             device_info = json.load(f)
         # Inside #
-        return redirect(request.url, code=302)
+        # device_info = requests.get(f"{current_app.config['DSM_SERVER']}/device_info?{request.query_string.decode('utf-8')})
         return self.response(200, **device_info)
