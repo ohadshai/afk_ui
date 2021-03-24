@@ -5,7 +5,7 @@ from flask_appbuilder import ModelView, ModelRestApi
 
 from .extensions import appbuilder, db
 from .models import JobType
-
+from .dsm_handler import DsmHandler
 
 from flask_appbuilder import BaseView, expose, has_access
 
@@ -20,8 +20,9 @@ class NewCycle(BaseView):
         # and return to previous page or index
         job_types = db.session.query(JobType).all()
         job_names = [job_type.to_json()['name'] for job_type in job_types]
-        #return self.render_template("new_cycle_natasha_MANUAL.html")
-        return self.render_template("new_cycle.html", job_names=job_names)
+        devices_info = DsmHandler().get_devices()
+        #return self.render_template("new_cycle.html.BEFORE_DEVICE_JINJA")
+        return self.render_template("new_cycle.html", job_names=job_names, devices_info=devices_info['data'])
 
 
 class Results(BaseView):

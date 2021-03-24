@@ -410,9 +410,13 @@ element.style {
 }
 
 .iphone-background {
-/* style="background-image: url({{url_for('static',filename='img/iphone.jpg')}});background-size: 200px"*/
     background-image: url('../img/iphone.jpg');
     background-size: 200px !important;
     background-position: 50% 50% !important;
 }
 
+.iphone-background-with-button {
+    background-image: url('../img/iphone_button.jpg');
+    background-size: 200px !important;
+    background-position: 50% 50% !important;
+}
