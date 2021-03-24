@@ -76,7 +76,7 @@ class AfkUiAppInitializer:
 
     def setup_db(self):
         from .models import JobType
-        print ("setup db")
+        print("setup db")
         db.init_app(self.app)
         db.create_all()
         jenkins_handler = JenkinsHandler()
