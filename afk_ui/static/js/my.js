@@ -2,7 +2,7 @@ function create_device_objects(device_info) {
     d_info_data = device_info["data"];
     d = document.querySelector('mel-grid-sizer');
     for (var i = 0; i < d_info_data.length; i++){
-        
+
     }
 
 }

@@ -3,8 +3,8 @@ from flask import request, current_app
 
 
 class DsmHandler():
-    def __init__(self, server=current_app.config['DSM_SERVER']):
-        self.server = current_app.config['DSM_SERVER']
+    def __init__(self, server=None):
+        self.server = server or current_app.config['DSM_SERVER']
 
     def get_devices(self, filter=None):
         import json

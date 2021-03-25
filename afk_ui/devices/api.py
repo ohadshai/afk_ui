@@ -1,10 +1,8 @@
-from flask import request, current_app, redirect
-import requests
 from flask_appbuilder.api import BaseApi, expose
+from ..dsm_handler import DsmHandler
 
 
 class DevicesApi(BaseApi):
-
     resource_name = "device_info"
     openapi_spec_tag = "Devices"
 
@@ -117,5 +115,5 @@ class DevicesApi(BaseApi):
         with open('afk_ui/devices/device_info_example.json') as f:
             device_info = json.load(f)
         # Inside #
-        # device_info = requests.get(f"{current_app.config['DSM_SERVER']}/device_info?{request.query_string.decode('utf-8')})
+        # device_info = DsmHandler().get_devices()
         return self.response(200, **device_info)
