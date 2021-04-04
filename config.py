@@ -117,7 +117,7 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
     # SQLALCHEMY_DATABASE_URI = 'postgresql://root:password@localhost/myapp'
 
-    Jenkins_URI = "http://JENKINS_HOST:8080"
+    JENKINS_URI = "http://localhost:8080/"
     ELK_URI = "http://ELK_HOST:9200"
     ELASTIC_APM = {
         "SERVICE_NAME": "UfkApp",
@@ -131,12 +131,13 @@ class Config(object):
 
 class ProductionConfig(Config):
     '''All necessary Production configuration'''
-    DSM_SERVER = "http://afk-server:8081"
+    DSM_SERVER = "http://afk-server:8081/"
+
 
 class DevelopmentConfig(Config):
     '''All necessary Development configuration'''
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
-    DSM_SERVER = "http://afk-dev-server:8081"
+    DSM_SERVER = "http://afk-dev-server:8081/"
     DEBUG = True
 
 

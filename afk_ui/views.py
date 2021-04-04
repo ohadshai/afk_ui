@@ -1,11 +1,10 @@
+import requests
 from flask import render_template
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView, ModelRestApi
 
-
-from .extensions import appbuilder, db
+from .extensions import appbuilder, db, config
 from .models import JobType
-from .dsm_handler import DsmHandler
 
 from flask_appbuilder import BaseView, expose, has_access
 
@@ -20,10 +19,14 @@ class NewCycle(BaseView):
         # and return to previous page or index
         job_types = db.session.query(JobType).all()
         job_names = [job_type.to_json()['name'] for job_type in job_types]
-        devices_info = DsmHandler().get_devices()
-        #return self.render_template("new_cycle.html.BEFORE_DEVICE_JINJA")
+        # OUTSIDE
+        import json
+        with open('afk_ui/devices/device_info_example.json') as f:
+            devices_info = json.load(f)
+        # INSIDE
+        # devices_info = requests.get(f"{config['DSM_SERVER']}/device_info")
         return self.render_template("new_cycle.html", job_names=job_names, devices_info=devices_info['data'])
-
+        # return self.render_template("new_cycle.html.BEFORE_DEVICE_JINJA")
 
 class Results(BaseView):
     default_view = "results"

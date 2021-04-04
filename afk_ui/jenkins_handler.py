@@ -1,14 +1,14 @@
 import jenkins
 
 
-JENKINS_URL = "http://localhost:8080"
-
 # replace with Token in future
 AUTHENTICATION_INFO = {'username': 'ohads', 'password': '1234'}
 
 
 class JenkinsHandler():
-    def __init__(self, url=JENKINS_URL):
+    def __init__(self, url=None):
+        from .extensions import config
+        url = url or config.get('JENKINS_URI')
         self.server = jenkins.Jenkins(url, **AUTHENTICATION_INFO)
 
     def get_jobs_info(self, filter=None):

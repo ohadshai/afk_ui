@@ -1,0 +1,68 @@
+         {% for device_info in devices_info %}
+<!--                {% set device_type_float = device_info['attributes']['deviceType'].replace(',','.').lstrip('iPhone')|float %}-->
+<!--                {% set iphone_background =  "iphone-background" if device_type_float > 10.5|float else "iphone-background-with-button" %}-->
+                {% if device_info['attributes']['deviceType'].replace(',','.').lstrip('iPhone')|float > 10.5|float %}
+                <div class="card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image iphone-background">
+                {% else %}
+                <div class="card mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image iphone-background-with-button">
+                {% endif %}
+                    <div class="card__secondary__title ">
+                         <div class="lock_status">
+                             {% if device_info['attributes']['isLocked'] %}
+                                <i class="material-icons  nata-icon">phonelink_lock</i>
+                             {% else %}
+                                <i class="material-icons  nata-icon-gr">phonelink_ring</i>
+                             {% endif %}
+                         </div>
+                         <div class=" card__secondary__title__text font_class_nata">{{ device_info['attributes']['modelName'] }}</div>
+                         <h6 class="version card__secondary__title__subtext ">{{ device_info['attributes']['firmwareVersion'] }}</h6>
+                    </div>
+                    <button class="add_dev mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                            <i class="material-icons">add</i>
+                    </button>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <div class="card-content ">
+                           <span class="card-title activator grey-text text-darken-4">Information<i class="material-icons right">more_vert</i></span>
+                        </div>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title card__secondary__title__text  grey-text text-darken-4">
+                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--blue mdl-button--mini-fab">
+                                <i class="material-icons">close</i>
+                             </button>
+                        </span>
+                     <ul class="demo-list-two mdl-list">
+                         <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue">fingerprint</i>
+                              <span>UDID</span>
+                              <span class="mdl-list__item-sub-title">{{ device_info['attributes']['UDID'] }}</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                               <i class="material-icons mdl-list__item-avatar mdl-color--blue">settings_remote</i>
+                              <span>Device Name</span>
+                              <span class="mdl-list__item-sub-title">{{ device_info['attributes']['name'] }}</span>
+                            </span>
+                          </li>
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue">fingerprint</i>
+                              <span>Host IP</span>
+                              <span class="mdl-list__item-sub-title">{{ device_info['attributes']['connectedHost'] }}</span>
+                            </span>
+                          </li>
+                      <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar mdl-color--blue">battery_charging_full</i>
+                              <span></span>
+                              <span class="mdl-list__item-sub-title">{{ device_info['attributes']['batteryCurrentCapacity'] }}%</span>
+                            </span>
+                          </li>
+                        </ul>
+                    </div>
+	            </div> <!-- .grid-item -->
+         {% endfor %}
+
+        </div><!-- .grid -->

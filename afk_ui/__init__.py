@@ -8,6 +8,7 @@
 # from afk_ui.index import  AfkUiIndexView
 #
 # from .jenkins_handler import JenkinsHandler
+from werkzeug.local import LocalProxy
 
 
 
@@ -60,3 +61,6 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
 #         db.session.commit()
 
 from .app import create_app
+
+# app = create_app()
+# config = LocalProxy(lambda: app.config)

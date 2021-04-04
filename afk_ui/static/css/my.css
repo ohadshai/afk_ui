@@ -392,7 +392,7 @@ element.style {
 }
 
 .navbar {
-    background: gray;
+    background: lightgrey;
     font-size: 14px !important;
 }
 
@@ -424,6 +424,7 @@ element.style {
 
 .pagination {
   display: inline-block;
+  left: 50% !important;
 }
 
 .pagination a {
@@ -436,6 +437,7 @@ element.style {
 .pagination a.active {
   background-color: #4CAF50;
   color: white;
+  border-radius: 5px;
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
