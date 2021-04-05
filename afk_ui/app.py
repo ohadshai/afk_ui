@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_cors import CORS
 from elasticapm.contrib.flask import ElasticAPM
 
 from log import configure_logger
@@ -12,6 +13,7 @@ def create_app() -> Flask:
 
     try:
         app = Flask(__name__)
+        CORS(app)
         load_config(app)
         apm = ElasticAPM(app)
         configure_logger(app, apm)
@@ -69,8 +71,8 @@ class AfkUiAppInitializer:
         self.post_init()
 
     def setup_db(self):
-        from .models import JobType
         from .extensions import db, jenkins_handler
+        from .models import JobType
         db.init_app(self.app)
         db.create_all()
         if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
@@ -92,7 +94,7 @@ class AfkUiAppInitializer:
                 db.session.commit()
 
     def configure_fab(self) -> None:
-        from .extensions import db, appbuilder
+        from .extensions import appbuilder, db
         appbuilder.indexview = AfkUiIndexView
         appbuilder.base_template = "baselayout.html"
         appbuilder.security_manager_class = AfkUiSecurityManager

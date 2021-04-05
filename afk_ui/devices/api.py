@@ -1,5 +1,7 @@
 from flask_appbuilder.api import BaseApi, expose
-from ..utils import _proxy
+from flask import render_template
+
+from ..extensions import dsm_handler
 
 
 class DevicesApi(BaseApi):
@@ -114,8 +116,9 @@ class DevicesApi(BaseApi):
         import json
         with open('afk_ui/devices/device_info_example.json') as f:
             devices_info = json.load(f)
-        return self.response(200, **devices_info)
+        return render_template("devices_cards.html", devices_info=devices_info['data'])
+        #return self.response(200, **devices_info)
         # Inside #
-        from ..extensions import config
+        # devices_info = dsm_handler.get_devices()
         # return _proxy(config['DSM_SERVER'])
 

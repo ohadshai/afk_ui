@@ -1,6 +1,7 @@
 werkzeug==0.16.1
 Flask-AppBuilder
 flask_babelpkg
+flask-cors
 gunicorn
 elastic-apm[flask]
 psutil
