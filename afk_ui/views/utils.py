@@ -1,6 +1,33 @@
 from flask import request, Response
 import requests
 
+TITLE_ICON_MAP = {
+    "UDID": {
+            "icon": "fingerprint",
+            "title": "udid",
+    },
+    "ECID": {
+            "icon": "fingerprint",
+            "title": "ecid",
+    },
+    "name": {
+            "icon": "Person",
+            "title": "device name",
+    },
+    "connectedHost": {
+            "icon": "computer",
+            "title": "host ip",
+    },
+    "batteryCurrentCapacity": {
+            "icon": "battery_charging_full",
+            "title": "battery",
+    },
+}
+
+
+def get_icon(key):
+    return TITLE_ICON_MAP.get(key, None)
+
 
 def _proxy(new_server):
     resp = requests.request(
@@ -17,3 +44,5 @@ def _proxy(new_server):
 
     response = Response(resp.content, resp.status_code, headers)
     return response
+
+

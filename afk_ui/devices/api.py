@@ -116,9 +116,7 @@ class DevicesApi(BaseApi):
         import json
         with open('afk_ui/devices/device_info_example.json') as f:
             devices_info = json.load(f)
-        return render_template("devices_cards.html", devices_info=devices_info['data'])
         #return self.response(200, **devices_info)
         # Inside #
         # devices_info = dsm_handler.get_devices()
-        # return _proxy(config['DSM_SERVER'])
-
+        return render_template("devices_cards.html", devices_info=devices_info['data'])

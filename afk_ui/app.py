@@ -101,7 +101,8 @@ class AfkUiAppInitializer:
         appbuilder.init_app(self.app, db.session)
 
     def init_views(self) -> None:
-        from .views import NewCycle, Results
+        from .views.new_cycle import NewCycle
+        from .views.results import Results
         from .devices.api import DevicesApi
         from .jobs.api import JobsApi
         from .extensions import appbuilder
