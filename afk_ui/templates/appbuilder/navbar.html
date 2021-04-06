@@ -1,0 +1,38 @@
+
+
+
+{% set menu = appbuilder.menu %}
+{% set languages = appbuilder.languages %}
+
+<nav class="navbar {{menu.extra_classes}} navbar-expand-lg navbar-light" role="navigation">
+   <div class="container">
+        <div class="navbar-header">
+
+            {% if appbuilder.app_icon %}
+                <a class="navbar-brand" href="{{appbuilder.get_url_for_index}}">
+                <img src="{{appbuilder.app_icon}}" height="100%" width="auto">
+                </a>
+            {% else %}
+                <span class="navbar-brand">
+                <a href="{{appbuilder.get_url_for_index}}">
+                {{ appbuilder.app_name }}
+                </a>
+                </span>
+            {% endif %}
+            <button type="button" class="navbar-toggle navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+                {% include 'appbuilder/navbar_menu.html' %}
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                {% include 'appbuilder/navbar_right.html' %}
+            </ul>
+        </div>
+   </div>
+</nav>
+

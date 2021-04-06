@@ -1,6 +1,8 @@
 from flask_appbuilder.api import BaseApi, expose
-from ..dsm_handler import DsmHandler
+from flask import render_template
 
+from ..extensions import dsm_handler
+from ..views.utils import get_property_info
 
 class DevicesApi(BaseApi):
     resource_name = "device_info"
@@ -113,7 +115,8 @@ class DevicesApi(BaseApi):
         # For OutSide #
         import json
         with open('afk_ui/devices/device_info_example.json') as f:
-            device_info = json.load(f)
+            devices_info = json.load(f)
+        #return self.response(200, **devices_info)
         # Inside #
-        # device_info = DsmHandler().get_devices()
-        return self.response(200, **device_info)
+        # devices_info = dsm_handler.get_devices()
+        return render_template("devices_cards.html", devices_info=devices_info['data'], get_property_info=get_property_info)

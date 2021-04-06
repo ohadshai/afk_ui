@@ -1,0 +1,180 @@
+
+          <div class="mdl-grid">
+
+            <div class="mdl-cell mdl-cell--12-col demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Test Parameters</h2>
+              </div>
+ <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar">
+                  <a href="#person-required-panel" class="mdl-tabs__tab is-active">Repository</a>
+                  <a href="#person-var-panel" class="mdl-tabs__tab">Variables</a>
+                  <a href="#person-log-panel" class="mdl-tabs__tab">Logs</a>
+                </div>
+
+                <div class="mdl-tabs__panel is-active" id="person-required-panel">
+                  <div class="mdl-card__supporting-text">
+                    <p>Required fields</p>
+
+                    <!-- Simple Textfield -->
+                    <div  class="mdl-grid">
+                      <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
+                        <input class="mdl-textfield__input" type="text" id="sample11">
+                        <label class="mdl-textfield__label" for="sample11">URL</label>
+                      </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--2-col">
+                        <input class="mdl-textfield__input" type="text" id="sample2">
+                        <label class="mdl-textfield__label" for="sample2">Branch</label>
+                      </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--2-col">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Commit</label>
+                      </div>
+                        </div>
+
+                      <div  class="mdl-grid">
+                      <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
+                        <input class="mdl-textfield__input" type="text" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">Tests</label>
+                      </div>
+                       <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample5">
+                        <label class="mdl-textfield__label" for="sample5">Repeats</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                      Card Actions
+                    </a>
+                  </div>
+                  <div class="mdl-card__menu">
+
+                    <!-- Right aligned menu below button -->
+                    <button id="demo-menu-lower-right"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">more_vert</i>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-lower-right">
+                      <li class="mdl-menu__item">Some Action</li>
+                      <li class="mdl-menu__item">Another Action</li>
+                      <li disabled class="mdl-menu__item">Disabled Action</li>
+                      <li class="mdl-menu__item">Yet Another Action</li>
+                    </ul>
+                  </div>
+
+                </div><!-- person-repository-panel -->
+                <div class="mdl-tabs__panel" id="person-var-panel">
+                  <div class="mdl-card__supporting-text">
+                    <p>Optional fields</p>
+
+                    <!-- Simple Textfield -->
+                    <div action="#" class="mdl-grid">
+                      <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
+                        <input class="mdl-textfield__input" type="text" id="sample_1">
+                        <label class="mdl-textfield__label" for="sample_1">URL</label>
+                      </div>
+
+
+                      <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--2-col">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample_2">
+                        <label class="mdl-textfield__label" for="sample_2">Port</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                      </div>
+
+                       <div class="mdl-textfield mdl-js-textfield getmdl-select mdl-cell mdl-cell--4-col">
+                            <input type="text" value="" class="mdl-textfield__input" id="sample_3" readonly>
+                            <input type="hidden" value="" name="sample_3">
+                            <label  class="mdl-textfield__label"  data-mdl-for="sample_3" >Tool Type</label>
+                            <ul for="sample_3" class="mdl-menu mdl-menu--top-right	 mdl-js-menu">
+                                <li class="mdl-menu__item" data-val="DEU">Per </li>
+                                <li class="mdl-menu__item" data-val="BLR">Not Per</li>
+                                  <li class="mdl-menu__item" data-val="BLR">Not Per222</li>
+                            </ul>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                      Card Actions
+                    </a>
+                  </div>
+                  <div class="mdl-card__menu">
+
+                    <!-- Right aligned menu below button -->
+                    <button id="demo-menu-lower-right"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">more_vert</i>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-lower-right">
+                      <li class="mdl-menu__item">Some Action</li>
+                      <li class="mdl-menu__item">Another Action</li>
+                      <li disabled class="mdl-menu__item">Disabled Action</li>
+                      <li class="mdl-menu__item">Yet Another Action</li>
+                    </ul>
+                  </div>
+
+                </div><!-- person-variables-panel -->
+
+
+
+                <div class="mdl-tabs__panel" id="person-log-panel">
+                  <div class="mdl-card__supporting-text">
+                    <p>Logs</p>
+
+                    <!-- Simple Textfield -->
+                    <div action="#" class="mdl-grid">
+                      <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
+                        <input class="mdl-textfield__input" type="text" id="sample__1">
+                        <label class="mdl-textfield__label" for="sample__1">Kern Regex</label>
+                      </div>
+
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
+                        <input class="mdl-textfield__input" type="text" id="sample__2">
+                        <label class="mdl-textfield__label" for="sample__2">Cons Regex</label>
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                      Card Actions
+                    </a>
+                  </div>
+                  <div class="mdl-card__menu">
+
+                    <!-- Right aligned menu below button -->
+                    <button id="demo-menu-lower-right"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">more_vert</i>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-lower-right">
+                      <li class="mdl-menu__item">Some Action</li>
+                      <li class="mdl-menu__item">Another Action</li>
+                      <li disabled class="mdl-menu__item">Disabled Action</li>
+                      <li class="mdl-menu__item">Yet Another Action</li>
+                    </ul>
+                  </div>
+
+                </div><!-- person-logs-panel -->
+              </div><!-- tabs wrapper -->
+
+            </div><!-- card wrapper -->
+          </div>
+

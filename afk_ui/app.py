@@ -1,17 +1,11 @@
 import os
 from flask import Flask
+from flask_cors import CORS
 from elasticapm.contrib.flask import ElasticAPM
 
 from log import configure_logger
 from .security import AfkUiSecurityManager
 from .index import AfkUiIndexView
-
-from .extensions import db, appbuilder
-from .jenkins_handler import JenkinsHandler
-
-
-from .devices.api import DevicesApi
-from .jobs.api import JobsApi
 
 
 def create_app() -> Flask:
@@ -19,6 +13,7 @@ def create_app() -> Flask:
 
     try:
         app = Flask(__name__)
+        CORS(app)
         load_config(app)
         apm = ElasticAPM(app)
         configure_logger(app, apm)
@@ -29,6 +24,7 @@ def create_app() -> Flask:
 
         app_initializer = app.config.get("APP_INITIALIZER", AfkUiAppInitializer)(app)
         app_initializer.init_app()
+        app.app_context().push()
 
         return app
 
@@ -75,11 +71,10 @@ class AfkUiAppInitializer:
         self.post_init()
 
     def setup_db(self):
+        from .extensions import db, jenkins_handler
         from .models import JobType
-        print("setup db")
         db.init_app(self.app)
         db.create_all()
-        jenkins_handler = JenkinsHandler()
         if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
             jobs_info = jenkins_handler.get_jobs_info()
             for job_info in jobs_info:
@@ -99,13 +94,17 @@ class AfkUiAppInitializer:
                 db.session.commit()
 
     def configure_fab(self) -> None:
+        from .extensions import appbuilder, db
         appbuilder.indexview = AfkUiIndexView
-        appbuilder.base_template = "baselayout.html"
         appbuilder.security_manager_class = AfkUiSecurityManager
         appbuilder.init_app(self.app, db.session)
 
     def init_views(self) -> None:
-        from .views import NewCycle, Results
+        from .views.new_cycle import NewCycle
+        from .views.results import Results
+        from .devices.api import DevicesApi
+        from .jobs.api import JobsApi
+        from .extensions import appbuilder
 
         appbuilder.add_view_no_menu(NewCycle())
         appbuilder.add_view_no_menu(Results())

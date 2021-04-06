@@ -223,7 +223,7 @@
   display: flex;
   cursor: pointer;
   margin-bottom: 8px !important;
-  padding: 24px 24px 24px 24px !important;
+  padding: 10px 24px 4px 24px !important;
   align-items: center; }
 
 /* STEP LABEL MOD WITH SUBLABEL */
@@ -278,7 +278,8 @@
   width: inherit;
   overflow: auto;
   margin-left: 64px;
-  margin-right: 24px; }
+  margin-right: 24px;
+  }
 
 /* STEP ACTIONS */
 .mdl-step__actions {
@@ -342,7 +343,7 @@
       content: '';
       background-color: transparent;
       width: 100%;
-      min-height: 84px;
+      min-height: 64px;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
       position: absolute;
       top: 0;
@@ -358,7 +359,7 @@
       margin-top: 0 !important;
       margin-bottom: 0 !important;
       height: initial;
-      max-height: 84px;
+      max-height: 64px;
       overflow: hidden;
       /* STEP MOD COMPLETED */ }
       .mdl-stepper--horizontal > .mdl-step.is-active.mdl-step--transient:before {
@@ -374,7 +375,7 @@
         justify-content: flex-start;
         align-items: center;
         width: calc(100% - 24px);
-        height: 84px;
+        height: 64px;
         background-color: white;
         top: 0;
         left: 0;
@@ -392,7 +393,7 @@
         content: '';
         position: relative;
         flex: 1;
-        top: 42px;
+        top: 26px;
         width: 168px;
         margin-left: -12px;
         height: 1px;
@@ -427,17 +428,18 @@
         margin-top: auto; }
     .mdl-stepper--horizontal .mdl-step > .mdl-step__content {
       position: absolute;
-      top: 84px;
+      top: 64px;
       left: 0;
       width: calc(100% - 48px);
-      height: calc(100% - 192px);
-      margin: 24px; }
+      height: calc(100% - 112px);
+      margin: 4px 24px 4px 24px;
+       }
     .mdl-stepper--horizontal .mdl-step > .mdl-step__actions {
       position: absolute;
-      top: calc(100% - 84px);
+      top: calc(100% - 60px);
       left: 0;
       margin: 0;
-      padding: 24px;
+      padding: 14px;
       width: calc(100% - 48px); }
       .mdl-stepper--horizontal .mdl-step > .mdl-step__actions [data-stepper-next] {
         order: 4;

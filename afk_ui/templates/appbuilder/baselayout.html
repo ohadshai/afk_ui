@@ -1,4 +1,4 @@
-{% extends 'init.html' %}
+{% extends 'appbuilder/init.html' %}
 {% import 'appbuilder/baselib.html' as baselib %}
 
 {% block body %}
@@ -7,12 +7,12 @@
 
     {% block navbar %}
         <header class="top" role="header">
-        {% include 'navbar.html' %}
+        {% include 'appbuilder/navbar.html' %}
         </header>
     {% endblock %}
 
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid px-4">
+      <div class="row gx-5">
           {% block messages %}
             {% include 'appbuilder/flash.html' %}
           {% endblock %}
@@ -21,14 +21,14 @@
       </div>
     </div>
 
-<!--    {% block footer %}-->
-<!--        <footer>-->
-<!--        <div class="img-rounded nav-fixed-bottom">-->
-<!--            <div class="container">-->
-<!--                {% include 'appbuilder/footer.html' %}-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        </footer>-->
-<!--    {% endblock %}-->
+    {% block footer %}
+        <footer>
+        <div class="img-rounded nav-fixed-bottom">
+            <div class="container">
+                {% include 'appbuilder/footer.html' %}
+            </div>
+        </div>
+        </footer>
+    {% endblock %}
 {% endblock %}
 

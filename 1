@@ -97,7 +97,7 @@ class Config(object):
     # APP_THEME = "cyborg.css"
     # APP_THEME = "flatly.css"
     # APP_THEME = "journal.css"
-    #APP_THEME = "readable.css"
+    APP_THEME = "readable.css"
     # APP_THEME = "simplex.css"
     # APP_THEME = "slate.css"
     # APP_THEME = "spacelab.css"
@@ -117,7 +117,7 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
     # SQLALCHEMY_DATABASE_URI = 'postgresql://root:password@localhost/myapp'
 
-    JENKINS_URI = "http://192.168.0.29:8080"
+    Jenkins_URI = "http://192.168.0.29:8080"
     ELK_URI = "http://ELK_HOST:9200"
     ELASTIC_APM = {
         "SERVICE_NAME": "UfkApp",
@@ -127,7 +127,6 @@ class Config(object):
         'MAX_QUEUE_SIZE': 1,
         "DEBUG": True
     }
-    DSM_PAGE_SIZE = 10
 
 
 class ProductionConfig(Config):

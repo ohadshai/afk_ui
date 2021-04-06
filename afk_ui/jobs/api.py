@@ -1,7 +1,6 @@
 from flask import request, make_response, jsonify
 from flask_appbuilder.api import BaseApi, expose
 
-from afk_ui.extensions import db
 from afk_ui.models import JobType
 
 
@@ -493,6 +492,7 @@ class JobsApi(BaseApi):
 
     @expose("/types", methods=["GET"])
     def job_types(self):
+        from afk_ui.extensions import db
         job_types = db.session.query(JobType).all()
         job_types_list = [job_type.to_json() for job_type in job_types]
         _ret_json = jsonify(job_types_list)
