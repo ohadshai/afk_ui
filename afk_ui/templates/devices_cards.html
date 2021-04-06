@@ -33,7 +33,7 @@
                         </span>
                      <ul class="demo-list-two mdl-list">
                          {% for key, value in device_info['attributes'].items() %}
-                            {% set property_info =  get_icon(key)  %}
+                            {% set property_info =  get_property_info(key)  %}
                             {% if property_info %}
                                  <li class="mdl-list__item mdl-list__item--two-line">
                                     <span class="mdl-list__item-primary-content">

@@ -2,7 +2,7 @@ from flask_appbuilder import BaseView, expose, has_access
 
 from ..extensions import db, dsm_handler
 from ..models import JobType
-from .utils import get_icon
+from .utils import get_property_info
 
 
 class NewCycle(BaseView):
@@ -75,4 +75,4 @@ class NewCycle(BaseView):
         # devices_info = dsm_handler.get_devices()
         # hw prop - To Be Completed
         return self.render_template("new_cycle.html", job_names=job_names, devices_info=devices_info['data'],
-                                    hw_prop=hw_prop, get_icon=get_icon)
+                                    hw_prop=hw_prop, get_property_info=get_property_info)

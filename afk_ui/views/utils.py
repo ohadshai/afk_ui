@@ -11,7 +11,7 @@ TITLE_ICON_MAP = {
             "title": "ecid",
     },
     "name": {
-            "icon": "Person",
+            "icon": "person",
             "title": "device name",
     },
     "connectedHost": {
@@ -25,7 +25,7 @@ TITLE_ICON_MAP = {
 }
 
 
-def get_icon(key):
+def get_property_info(key):
     return TITLE_ICON_MAP.get(key, None)
 
 
