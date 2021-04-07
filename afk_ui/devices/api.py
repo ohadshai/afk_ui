@@ -2,7 +2,7 @@ from flask_appbuilder.api import BaseApi, expose
 from flask import render_template
 
 from ..extensions import dsm_handler
-from ..views.utils import get_property_info
+from ..views.utils import get_property_info, get_device_image
 
 class DevicesApi(BaseApi):
     resource_name = "device_info"
@@ -119,4 +119,4 @@ class DevicesApi(BaseApi):
         #return self.response(200, **devices_info)
         # Inside #
         # devices_info = dsm_handler.get_devices()
-        return render_template("devices_cards.html", devices_info=devices_info['data'], get_property_info=get_property_info)
+        return render_template("devices_cards.html", devices_info=devices_info['data'], get_property_info=get_property_info,  get_device_image = get_device_image)

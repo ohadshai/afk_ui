@@ -11,7 +11,7 @@
 
            {% set dev_image =  "img/"+get_device_image(device["attributes"]["modelName"])  %}
 
-      	<div class="designs mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename=dev_image)}});">
+      	<div class="mel-grid-item  mdl-cell mdl-card mdl-shadow--4dp portfolio-card demo-card-image"  style="background-image: url({{url_for('static',filename=dev_image)}});">
                 <div class="card__secondary__title ">
                     <div class="lock_status">
                                 {% if device["attributes"]["isLocked"] %}
