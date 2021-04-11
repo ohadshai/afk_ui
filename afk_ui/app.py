@@ -12,7 +12,6 @@ def create_app() -> Flask:
     app = Flask(__name__)
 
     try:
-        app = Flask(__name__)
         CORS(app)
         load_config(app)
         apm = ElasticAPM(app)

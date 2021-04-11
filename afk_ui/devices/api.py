@@ -1,8 +1,9 @@
 from flask_appbuilder.api import BaseApi, expose
-from flask import render_template
+from flask import request, render_template, current_app
 
 from ..extensions import dsm_handler
 from ..views.utils import get_property_info, get_device_image
+
 
 class DevicesApi(BaseApi):
     resource_name = "device_info"
@@ -112,10 +113,15 @@ class DevicesApi(BaseApi):
             500:
               $ref: '#/components/responses/500'
         """
-        # For OutSide #
+        # OUTSIDE
+        current_app.logger.info(f"URL: {request.url}")
         import json
-        with open('afk_ui/devices/device_info_example.json') as f:
-            devices_info = json.load(f)
+        if not request.query_string:
+            with open('afk_ui/devices/device_info_example.json') as f:
+                devices_info = json.load(f)
+        elif "isPac" in request.query_string.decode('utf-8'):
+            with open('afk_ui/devices/device_info_pac.json') as f:
+                devices_info = json.load(f)
         #return self.response(200, **devices_info)
         # Inside #
         # devices_info = dsm_handler.get_devices()

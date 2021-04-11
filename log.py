@@ -6,7 +6,7 @@ from elasticapm.handlers.logging import LoggingHandler
 
 def configure_logger(app, apm):
     # Get logging config from file
-    extra = {'env': os.environ.get('FLASK_ENV', 'production')}
+    extra = {'env': os.environ.get('FLASK_ENV', 'production'), 'app_logger': app.name}
     logging.config.fileConfig('logging.ini', defaults=extra)
     # adding hardcoded handler to apm
     handler = LoggingHandler(client=apm.client)

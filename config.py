@@ -117,12 +117,12 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
     # SQLALCHEMY_DATABASE_URI = 'postgresql://root:password@localhost/myapp'
 
-    JENKINS_URI = "http://192.168.0.29:8080"
-    ELK_URI = "http://ELK_HOST:9200"
+    JENKINS_URI = "http://localhost:8080"
+    ELK_URI = "http://localhost:9200"
     ELASTIC_APM = {
         "SERVICE_NAME": "UfkApp",
         "SECRET_TOKEN": "",
-        "SERVICE_URL": "http://192.168.0.29:8200",
+        "SERVICE_URL": "http://localhost:8200",
         'FLUSH_INTERVAL': 1,
         'MAX_QUEUE_SIZE': 1,
         "DEBUG": True
