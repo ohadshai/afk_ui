@@ -117,16 +117,16 @@ class DevicesApi(BaseApi):
         current_app.logger.info(f"URL: {request.url}")
         import json
         if not request.query_string:
-            with open('afk_ui/devices/device_info_example.json') as f:
+            with open('afk_ui/devices/devices_info/device_info_example.json') as f:
                 devices_info = json.load(f)
         elif "isPac" in request.query_string.decode('utf-8'):
-            with open('afk_ui/devices/device_info_pac.json') as f:
+            with open('afk_ui/devices/devices_info/device_info_pac.json') as f:
                 devices_info = json.load(f)
         elif "13" in request.query_string.decode('utf-8'):
-            with open('afk_ui/devices/device_info_12_device_type.json') as f:
+            with open('afk_ui/devices/devices_info/device_info_12_device_type.json') as f:
                 devices_info = json.load(f)
         else:
-            with open('afk_ui/devices/device_info_empty.json') as f:
+            with open('afk_ui/devices/devices_info/device_info_empty.json') as f:
                 devices_info = json.load(f)
         #return self.response(200, **devices_info)
         # Inside #
