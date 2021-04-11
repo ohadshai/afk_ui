@@ -24,7 +24,11 @@ $('.pac-filter').click( function() {
     get_device_info(filter="[{\"name\":\"isPac\",\"op\":\"eq\",\"val\":true}]")
 })
 
-//var all_filter = document.querySelector('.all-filter');
-//var pac_filter = document.querySelector('.pac-filter');
+$('#exmple-getting-started').on('change', function() {
+    var selected_devices = [];
+    $('option:selected').each(function(){
+        selected_devices.push($(this).val())
+    });
 
-//filter_button.addEventListener('click', get_device_info)
+    (selected_devices.length > 0) ? get_device_info(filter=`[{\"name\":\"deviceType\",\"op\":\"in_\",\"val\":${JSON.stringify(selected_devices)}}]`) : get_devices_info(filter=false);
+})
