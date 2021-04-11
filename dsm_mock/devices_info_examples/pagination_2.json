@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "type": "person",
+      "id": "3",
+      "attributes": {
+        "display_name": "GIL <gil@gmail.com>",
+        "birth_date": "1992-01-12"
+      },
+      "relationships": {
+        "computers": {
+          "links": {
+            "self": "/persons/3/relationships/computers",
+            "related": "/persons/3/computers"
+          }
+        }
+      },
+      "links": {
+        "self": "/persons/3"
+      }
+    },
+    {
+      "type": "person",
+      "id": "4",
+      "attributes": {
+        "display_name": "DAVID <david@gmail.com>",
+        "birth_date": "1976-11-20"
+      },
+      "relationships": {
+        "computers": {
+          "links": {
+            "self": "/persons/4/relationships/computers",
+            "related": "/persons/4/computers"
+          }
+        }
+      },
+      "links": {
+        "self": "/persons/4"
+      }
+    }
+  ],
+  "links": {
+    "self": "http://localhost:5555/persons?page%5Bsize%5D=2&page%5Bnumber%5D=2",
+    "first": "http://localhost:5555/persons?page%5Bsize%5D=2",
+    "last": "http://localhost:5555/persons?page%5Bsize%5D=2&page%5Bnumber%5D=6",
+    "prev": "http://localhost:5555/persons?page%5Bsize%5D=2&page%5Bnumber%5D=1",
+    "next": "http://localhost:5555/persons?page%5Bsize%5D=2&page%5Bnumber%5D=3"
+  },
+  "meta": {
+    "count": 12
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

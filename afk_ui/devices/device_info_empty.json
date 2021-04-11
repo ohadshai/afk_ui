@@ -1,0 +1,5 @@
+{"data": [],
+  "jsonapi": {"version": "1.0"},
+  "links": {"self": "/device_info"},
+  "meta": {"count": 0}
+}

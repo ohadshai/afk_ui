@@ -24,11 +24,21 @@ $('.pac-filter').click( function() {
     get_device_info(filter="[{\"name\":\"isPac\",\"op\":\"eq\",\"val\":true}]")
 })
 
-$('#exmple-getting-started').on('change', function() {
+$('#example-getting-started').on('change', function() {
     var selected_devices = [];
     $('option:selected').each(function(){
         selected_devices.push($(this).val())
     });
 
-    (selected_devices.length > 0) ? get_device_info(filter=`[{\"name\":\"deviceType\",\"op\":\"in_\",\"val\":${JSON.stringify(selected_devices)}}]`) : get_devices_info(filter=false);
+    (selected_devices.length > 0) ? get_device_info(filter=`[{\"name\":\"deviceType\",\"op\":\"in_\",\"val\":${JSON.stringify(selected_devices)}}]`) : get_device_info(filter=false);
+})
+
+$('.pointer-label low').on('change', function() {
+    a = $(this).val();
+    b = 1;
+})
+
+$('.pointer-label high').on('change', function() {
+    a = $(this).val();
+    b = 1
 })
