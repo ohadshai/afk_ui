@@ -7,20 +7,24 @@ class DsmHandler():
     def __init__(self):
         self.server = current_app.config['DSM_SERVER']
         self.page_size = current_app.config['DSM_PAGE_SIZE']
+        self.query_dict_base = {'page[size]': self.page_size}
 
-    def _make_local_filter(self):
-        if 'filter' in request.query_string:
-            local_filter = lambda d: d.get('connectedHost')
-            for fil in filter(local_filter, json.loads(request.args['filter'])):
-                a = 1
+    def _check_for_host_filter(self, query_dict):
+        if 'connectedHost' in query_dict.get('filter', ""):
+            filters = []
+            for _filter in json.loads(query_dict['filter']):
+                if _filter['name'] == 'connectedHost':
+                    _filter['val'] = request.remote_addr
+                filters.append(_filter)
+            query_dict['filter'] = json.dumps(filters)
 
-    def get_devices(self, filter=None):
+    def get_devices(self):
         # Inside #
-        self._make_local_filter()
-        url_req = f"{self.server}/device_info?page[size]={self.page_size}"
-        url_req += f"&{request.query_string.decode('utf-8')}" if request.query_string else ""
-
-        res = requests.get(url_req)
-        device_info = res.json()
-
-        return device_info
+        query_dict = dict(self.query_dict_base, **request.args.to_dict())
+        self._check_for_host_filter(query_dict)
+        base_url = f"{self.server}/device_info?"
+        url_req = base_url + '&'.join(['%s=%s' % (key, value) for (key, value) in query_dict.items()])
+        # res = requests.get(url_req)
+        # device_info = res.json()
+        #
+        # return device_info

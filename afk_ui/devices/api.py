@@ -140,7 +140,7 @@ class DevicesApi(BaseApi):
                 devices_info = json.load(f)
         #return self.response(200, **devices_info)
         # Inside #
-        devices_info = dsm_handler.get_devices()
+        _devices_info = dsm_handler.get_devices()
         number_pages = math.ceil(devices_info['meta']['count'] / dsm_handler.page_size)
         return render_template("devices_cards.html", devices_info=devices_info, number_pages=number_pages,
                                get_property_info=get_property_info, get_device_image=get_device_image)
