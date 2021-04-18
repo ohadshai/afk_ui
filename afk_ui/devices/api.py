@@ -1,3 +1,4 @@
+import math
 from flask_appbuilder.api import BaseApi, expose
 from flask import request, render_template, current_app
 
@@ -117,7 +118,7 @@ class DevicesApi(BaseApi):
         current_app.logger.info(f"URL: {request.url}")
         import json
         if not request.query_string:
-            with open('afk_ui/devices/devices_info/device_info_example.json') as f:
+            with open('afk_ui/devices/devices_info/device_info_example_page_1.json') as f:
                 devices_info = json.load(f)
         elif "isPac" in request.query_string.decode('utf-8'):
             with open('afk_ui/devices/devices_info/device_info_pac.json') as f:
@@ -125,10 +126,21 @@ class DevicesApi(BaseApi):
         elif "13" in request.query_string.decode('utf-8'):
             with open('afk_ui/devices/devices_info/device_info_12_device_type.json') as f:
                 devices_info = json.load(f)
+        elif "page[number]=2" in request.query_string.decode('utf-8'):
+            with open('afk_ui/devices/devices_info/device_info_example_page_2.json') as f:
+                devices_info = json.load(f)
+        elif "page[number]=3" in request.query_string.decode('utf-8'):
+            with open('afk_ui/devices/devices_info/device_info_example_page_3.json') as f:
+                devices_info = json.load(f)
+        elif "page[number]=4" in request.query_string.decode('utf-8'):
+            with open('afk_ui/devices/devices_info/device_info_example_page_4.json') as f:
+                devices_info = json.load(f)
         else:
             with open('afk_ui/devices/devices_info/device_info_empty.json') as f:
                 devices_info = json.load(f)
         #return self.response(200, **devices_info)
         # Inside #
-        # devices_info = dsm_handler.get_devices()
-        return render_template("devices_cards.html", devices_info=devices_info['data'], get_property_info=get_property_info,  get_device_image = get_device_image)
+        devices_info = dsm_handler.get_devices()
+        number_pages = math.ceil(devices_info['meta']['count'] / dsm_handler.page_size)
+        return render_template("devices_cards.html", devices_info=devices_info, number_pages=number_pages,
+                               get_property_info=get_property_info, get_device_image=get_device_image)

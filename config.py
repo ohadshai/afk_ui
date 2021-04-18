@@ -127,7 +127,7 @@ class Config(object):
         'MAX_QUEUE_SIZE': 1,
         "DEBUG": True
     }
-    DSM_PAGE_SIZE = 10
+    DSM_PAGE_SIZE = 3
 
 
 class ProductionConfig(Config):

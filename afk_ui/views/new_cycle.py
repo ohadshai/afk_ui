@@ -1,3 +1,4 @@
+import math
 from flask_appbuilder import BaseView, expose, has_access
 
 from ..extensions import db, dsm_handler
@@ -68,10 +69,13 @@ class NewCycle(BaseView):
         job_names = [job_type.to_json()['name'] for job_type in job_types]
         # OUTSIDE
         import json
-        with open('afk_ui/devices/device_info_example.json') as f:
+        with open('afk_ui/devices/devices_info/device_info_example_page_1.json') as f:
             devices_info = json.load(f)
         # INSIDE
         # devices_info = dsm_handler.get_devices()
+        number_pages = math.ceil(devices_info['meta']['count']/dsm_handler.page_size)
         # hw prop - To Be Completed
-        return self.render_template("new_cycle.html", job_names=job_names, devices_info=devices_info['data'],
-                                    hw_prop=HW_PROP[::-1], get_property_info=get_property_info , get_device_image = get_device_image)
+        return self.render_template("new_cycle.html", job_names=job_names, devices_info=devices_info,
+                                    number_pages=number_pages,
+                                    hw_prop=HW_PROP[::-1], get_property_info=get_property_info,
+                                    get_device_image=get_device_image)

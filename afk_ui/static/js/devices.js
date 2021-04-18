@@ -2,9 +2,12 @@ function get_server_url(){
     return window.location.href.split('/')[2]
 }
 
-function get_device_info(filter) {
-    filter = filter ? `filter=${filter}` : "";
-    fetch(`http://${get_server_url()}/api/v1/device_info?${filter}`)
+function get_device_info(filter, page=1) {
+    var page_filter = "";
+    var filter = filter ? `filter=${filter}` : "";
+    if (filter){page_filter = "&";}
+    page_filter = page > 1 ? page_filter + `page[number]=${page}` : "";
+    fetch(`http://${get_server_url()}/api/v1/device_info?${filter}${page_filter}`)
     .then(res=>{
         return res.text();
 //        create_device_objects(device_info);
@@ -18,6 +21,10 @@ function get_device_info(filter) {
 
 $('.all-filter').click(function() {
     get_device_info(filter=false)
+})
+
+$('.local-filter').click(function() {
+    get_device_info(filter="[{\"name\":\"connectedHost\",\"op\":\"eq\",\"val\":\"IP\"}]")
 })
 
 $('.pac-filter').click( function() {
@@ -41,4 +48,9 @@ $('.pointer-label low').on('change', function() {
 $('.pointer-label high').on('change', function() {
     a = $(this).val();
     b = 1
+})
+
+$('.page-link').click( function() {
+    var page = $(this).text();
+    get_device_info(filter=false, page)
 })
