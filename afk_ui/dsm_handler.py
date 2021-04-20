@@ -24,6 +24,7 @@ class DsmHandler():
         self._check_for_host_filter(query_dict)
         base_url = f"{self.server}/device_info?"
         url_req = base_url + '&'.join(['%s=%s' % (key, value) for (key, value) in query_dict.items()])
+        a = 1
         # res = requests.get(url_req)
         # device_info = res.json()
         #

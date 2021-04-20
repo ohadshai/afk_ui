@@ -19,7 +19,7 @@
                                 </li>
                                   {% if hw_prop %}
                                   <li class="nav-item">
-                                  <select id="example-getting-started" multiple="multiple">
+                                  <select id="hw-list" multiple="multiple">
                                       {% for optgrp in hw_prop %}
                                       <optgroup label="{{optgrp['key']}}" class="group-1">
                                             {% for item in optgrp['val'] %}
@@ -34,11 +34,11 @@
                                   {% endif %}
 
                                     <li class="nav-item dropdown">
-                                      <a class="nav-link dropdown-toggle mel-filter_ios" data-filter=".ios" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <a class="nav-link dropdown-toggle mel-filter_ios" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         SW
                                       </a>
-                                          <ul class="dropdown-menu range_dropdown" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><div class="dropdown-item disableHover" href="#">
+                                          <ul class="dropdown-menu range_dropdown" aria-labelledby="navbarDarkDropdownMenuLink" >
+                                            <li><div class="dropdown-item" href="#">
 
                                                 <div class="card text-center">
                                                     <div class="card-header">
@@ -56,8 +56,15 @@
                                                 </div></li>
                                           </ul>
                                     </li>
-                                  <li class="nav-item">
-                                        <a class="nav-link mel-filter pac-filter"  href="#">PAC</a>
+                                  <li class="nav-item dropdown">
+                                      <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          PAC
+                                      </a>
+                                      <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item active" href="#">Any</a></li>
+                                        <li><a class="dropdown-item" href="#">True</a></li>
+                                        <li><a class="dropdown-item" href="#">False</a></li>
+                                      </ul>
                                 </li>
 
 
