@@ -47,19 +47,19 @@ $('.local-filter').click(function() {
 })
 
 
-
-$( ".dropdown-menu" ).css('margin-top',0);
-$( ".dropdown" )
-  .mouseover(function() {
-    $( this ).addClass('show').attr('aria-expanded',"true");
-    $( this ).find('.dropdown-menu').addClass('show');
-//    $( this ).find('.dropdown-toggle').addClass('show');
-  })
-  .mouseout(function() {
-    $( this ).removeClass('show').attr('aria-expanded',"false");
-    $( this ).find('.dropdown-menu').removeClass('show');
-//    $( this ).find('.dropdown-toggle').removeClass('show');
-  });
+//
+//$( ".dropdown-menu" ).css('margin-top',0);
+//$( ".dropdown" )
+//  .mouseover(function() {
+//    $( this ).addClass('show').attr('aria-expanded',"true");
+//    $( this ).find('.dropdown-menu').addClass('show');
+////    $( this ).find('.dropdown-toggle').addClass('show');
+//  })
+//  .mouseout(function() {
+//    $( this ).removeClass('show').attr('aria-expanded',"false");
+//    $( this ).find('.dropdown-menu').removeClass('show');
+////    $( this ).find('.dropdown-toggle').removeClass('show');
+//  });
 
 
 $('.dropdown-menu a').click(function () {
@@ -102,4 +102,8 @@ $('.pointer-label high').on('change', function() {
 $('.page-link').click( function() {
     var page = $(this).text();
     get_device_info(filter=[], page)
+})
+
+$('.all-filter').on('click', function() {
+            $('#hw-list').multiselect('deselectAll', false)
 })
